@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1><b>Mission to Mars</b></h1>
+      <p><a class="btn btn-primary btn-md" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <h4><b>Latest Mars News</b></h4>
+      <h6><b>{{ mars.news_title}} </b></h6>
+      <p>{{ mars.news_p}}</p>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-lg-8">
+      <h4><b>Featured Mars Image</b></h4>
+      <img src="{{ mars.img_url }}" class="img-responsive" alt="Mars_Featured_Image"> 
+      </div>
+      <div class="col-md-4 col-lg-4 card">
+        <div class="card-body">
+          <h5 class="card-title">Current Weather on Mars</h5>
+          <p class="card-text">{{ mars.mars_weather }}</p>
+        </div>
+        <div class="col-lg-12 col-md-12">
+          <h4><b>Mars Facts</b></h4>
+          {{ mars.mars_info | safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    {% if mars %}
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="width: 100%; display: block;" src="{{ mars.hemisphere_image_urls.0 }}" data-holder-rendered="true">
+          <div class="card-body">
+            <p class="card-text"><b>{{ mars.hemisphere_titles.0 }}</b>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="width: 100%; display: block;" src="{{ mars.hemisphere_image_urls.1 }}" data-holder-rendered="true">
+          <div class="card-body">
+            <p class="card-text"><b>{{ mars.hemisphere_titles.1 }}</b>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="width: 100%; display: block;" src="{{ mars.hemisphere_image_urls.2 }}" data-holder-rendered="true">
+          <div class="card-body">
+            <p class="card-text"><b>{{ mars.hemisphere_titles.2 }}</b>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="width: 100%; display: block;" src="{{ mars.hemisphere_image_urls.3 }}" data-holder-rendered="true">
+          <div class="card-body">
+            <p class="card-text"><b>{{ mars.hemisphere_titles.3 }}</b>.</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+  </div>
+</body>
+
+</html>
